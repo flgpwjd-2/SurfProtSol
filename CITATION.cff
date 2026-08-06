@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use SurfProtSol, please cite the software and the associated paper."
+title: "SurfProtSol"
+type: software
+version: 1.0.0
+date-released: 2026-08-06
+authors:
+  - family-names: "Lee"
+    given-names: "Huijing"
+    affiliation: "East China Normal University"
+repository-code: "https://github.com/flgpwjd-2/SurfProtSol"
+license: BSD-3-Clause
+preferred-citation:
+  type: article
+  title: "SurfProtSol: Protein-Level Molecular Surface Representation Learning for Multimodal Protein Solubility Prediction"
+  authors:
+    - family-names: "Lee"
+      given-names: "Huijing"
+      affiliation: "East China Normal University"
+  year: 2026

@@ -1,0 +1,15 @@
+{
+  "all_release_actions": [
+    "include"
+  ],
+  "bytes": 3318644,
+  "excluded_directories": [
+    ".git",
+    "__pycache__",
+    "checkpoints",
+    "data",
+    "outputs",
+    "vendor"
+  ],
+  "files": 77
+}

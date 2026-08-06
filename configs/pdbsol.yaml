@@ -1,0 +1,41 @@
+seed: 3407
+device: auto
+output_dir: outputs/pdbsol_seed3407
+
+data:
+  train:
+    bundle: data/bundles/pdbsol_train
+  validation:
+    bundle: data/bundles/pdbsol_validation
+  test:
+    bundle: data/bundles/pdbsol_test
+  external:
+    bundle: data/bundles/external
+  batch_size: 64
+  num_workers: 0
+
+model:
+  sequence_structure_dim: 1280
+  physicochemical_dim: 42
+  surface_dim: 64
+  num_prototypes: 8
+  num_attention_heads: 8
+  dropout: 0.1
+  ffn_multiplier: 2
+
+training:
+  epochs: 30
+  patience: 5
+  weight_decay: 0.01
+  concat_learning_rate: 0.0005
+  cross_learning_rate: 0.0002
+  concat_monitor: mcc
+  cross_monitor: accuracy
+
+selection:
+  temperature_min: 0.05
+  temperature_max: 5.0
+  temperature_steps: 200
+  alpha_step: 0.1
+  threshold_step: 0.005
+  optimize: accuracy

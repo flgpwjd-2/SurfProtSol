@@ -1,0 +1,114 @@
+[
+  {
+    "artifact_id": "surface_z_full_pdbsol",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/pdbsol_surface_z_from_cache.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "Full 64-dimensional protein-level surface vectors."
+  },
+  {
+    "artifact_id": "surface_z_full_external",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/external_surface_z_from_cache.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "External-benchmark protein-level surface vectors."
+  },
+  {
+    "artifact_id": "surface_z_frozen_pdbsol",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/pdbsol_surface_z_frozen_dmasif.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "Frozen-surface control vectors."
+  },
+  {
+    "artifact_id": "surface_z_frozen_external",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/external_surface_z_frozen_dmasif.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "External frozen-surface control vectors."
+  },
+  {
+    "artifact_id": "surface_z_chemistry_only_pdbsol",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/pdbsol_surface_z_no_geom_round3.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "Geometry channels removed."
+  },
+  {
+    "artifact_id": "surface_z_chemistry_only_external",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/external_surface_z_no_geom.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "External geometry-removed vectors."
+  },
+  {
+    "artifact_id": "surface_z_geometry_only_pdbsol",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/pdbsol_surface_z_no_chem.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "Atom-type chemistry channels removed."
+  },
+  {
+    "artifact_id": "surface_z_geometry_only_external",
+    "kind": "surface_vector",
+    "source": "result/dmasif_z/external_surface_z_no_chem.csv",
+    "release_channel": "Zenodo",
+    "redistribution_status": "hold_for_upstream_data_review",
+    "notes": "External chemistry-removed vectors."
+  },
+  {
+    "artifact_id": "final_concat_valid_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/probs_concat_valid.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Descriptor-augmentation validation probabilities."
+  },
+  {
+    "artifact_id": "final_cross_valid_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/probs_cross_valid.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Cross-attention validation probabilities."
+  },
+  {
+    "artifact_id": "final_concat_test_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/probs_concat_test.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Descriptor-augmentation test probabilities."
+  },
+  {
+    "artifact_id": "final_cross_test_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/probs_cross_test.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Cross-attention test probabilities."
+  },
+  {
+    "artifact_id": "final_concat_external_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/external_eval/probs_concat_external.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Descriptor-augmentation external probabilities."
+  },
+  {
+    "artifact_id": "final_cross_external_source",
+    "kind": "prediction",
+    "source": "result/ensemble_physico42_cross/external_eval/probs_cross_external.csv",
+    "release_channel": "GitHub",
+    "redistribution_status": "export_without_labels",
+    "notes": "Cross-attention external probabilities."
+  }
+]

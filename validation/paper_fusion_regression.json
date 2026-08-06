@@ -1,0 +1,30 @@
+{
+  "audit_date": "2026-07-23",
+  "inputs": "Local paper branch prediction CSV files; not redistributed in this record.",
+  "operating_point": {
+    "temperature": 1.5175879396984926,
+    "alpha": 0.5,
+    "threshold": 0.49,
+    "optimize": "accuracy",
+    "validation_score": 0.7888544891640867,
+    "validation_nll": 0.45780812544483757
+  },
+  "validation": {
+    "auroc": 0.8755138066156452,
+    "accuracy": 0.7888544891640867,
+    "f1": 0.7997651203758074,
+    "mcc": 0.5771540593951932
+  },
+  "test": {
+    "auroc": 0.8895794980083506,
+    "accuracy": 0.7981424148606812,
+    "f1": 0.8090216754540129,
+    "mcc": 0.5956004677732998
+  },
+  "external": {
+    "auroc": 0.6570711966672655,
+    "accuracy": 0.6123499142367067,
+    "f1": 0.5492482356551089,
+    "mcc": 0.23707242394545483
+  }
+}
