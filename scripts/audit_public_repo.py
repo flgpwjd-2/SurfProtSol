@@ -20,8 +20,14 @@ EXCLUDED_DIRECTORIES = {
     "checkpoints",
     "data",
     "outputs",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
     "vendor",
 }
+MANIFEST_FILES = {"RELEASE_MANIFEST.csv", "RELEASE_MANIFEST_SUMMARY.json"}
 FORBIDDEN_SUFFIXES = {".pt", ".pth", ".ckpt", ".pdb", ".npy", ".npz"}
 FORBIDDEN_DIRECTORY_NAMES = {"dMaSIF-master", "ProtSolM-main"}
 MAX_GIT_FILE_BYTES = 50 * 1024 * 1024
@@ -35,11 +41,18 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
+def is_excluded(relative: Path) -> bool:
+    return any(
+        part in EXCLUDED_DIRECTORIES or part.endswith(".egg-info")
+        for part in relative.parts
+    )
+
+
 def release_files() -> list[Path]:
     files: list[Path] = []
     for path in ROOT.rglob("*"):
         relative = path.relative_to(ROOT)
-        if any(part in EXCLUDED_DIRECTORIES for part in relative.parts):
+        if is_excluded(relative):
             continue
         if path.is_file():
             files.append(path)
@@ -83,6 +96,27 @@ def verify_manifest() -> list[str]:
     failures: list[str] = []
     with manifest.open("r", encoding="utf-8-sig", newline="") as handle:
         rows = list(csv.DictReader(handle))
+    listed_paths = [Path(row["path"]).as_posix() for row in rows]
+    duplicate_paths = sorted(
+        {relative for relative in listed_paths if listed_paths.count(relative) > 1}
+    )
+    failures.extend(f"duplicate manifest entry: {relative}" for relative in duplicate_paths)
+
+    actual_paths = {
+        path.relative_to(ROOT).as_posix()
+        for path in release_files()
+        if path.name not in MANIFEST_FILES and path.suffix != ".pyc"
+    }
+    listed_path_set = set(listed_paths)
+    failures.extend(
+        f"release file is not listed in manifest: {relative}"
+        for relative in sorted(actual_paths - listed_path_set)
+    )
+    failures.extend(
+        f"manifest entry has no release file: {relative}"
+        for relative in sorted(listed_path_set - actual_paths)
+    )
+
     for row in rows:
         relative = Path(row["path"])
         path = (ROOT / relative).resolve()

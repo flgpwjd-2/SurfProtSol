@@ -131,11 +131,16 @@ artifacts are recorded in `manifests/autodl_artifact_inventory.csv`; an
 inventory entry does not imply redistribution permission.
 
 The source repository is https://github.com/flgpwjd-2/SurfProtSol. The
-reproducibility-artifact record has the reserved Zenodo DOI
+reproducibility-artifact record is available at the Zenodo DOI
 https://doi.org/10.5281/zenodo.21583106. Pinned upstream revisions and the
 ProtSSN checkpoint checksum are recorded in `THIRD_PARTY_NOTICES.md`. Code and
 generated research outputs have separate license notices in `LICENSE` and
 `DATA_LICENSE.md`.
+
+The SurfProtSol software release `v1.0.1` is compatible with the Zenodo
+reproducibility-artifact package `v1.0.0`. The artifact version remains
+unchanged because this software patch does not modify released checkpoints,
+surface vectors, prediction files, or reported results.
 
 The file-level public-release inventory is recorded in
 `RELEASE_MANIFEST.csv`; regenerate it with

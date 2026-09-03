@@ -14,9 +14,16 @@ OUTPUT_JSON = ROOT / "RELEASE_MANIFEST_SUMMARY.json"
 EXCLUDED_DIRECTORIES = {
     ".git",
     "__pycache__",
+    "build",
+    "dist",
     "data",
     "outputs",
     "checkpoints",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "venv",
     "vendor",
 }
 EXCLUDED_FILES = {OUTPUT_CSV.name, OUTPUT_JSON.name}
@@ -28,6 +35,13 @@ def sha256(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def is_excluded(relative: Path) -> bool:
+    return any(
+        part in EXCLUDED_DIRECTORIES or part.endswith(".egg-info")
+        for part in relative.parts
+    )
 
 
 def release_metadata(relative: Path) -> tuple[str, str, str]:
@@ -66,7 +80,7 @@ def main() -> None:
         if not path.is_file():
             continue
         relative = path.relative_to(ROOT)
-        if any(part in EXCLUDED_DIRECTORIES for part in relative.parts):
+        if is_excluded(relative):
             continue
         if relative.name in EXCLUDED_FILES or relative.suffix == ".pyc":
             continue
@@ -99,6 +113,7 @@ def main() -> None:
     OUTPUT_JSON.write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
     print(f"Wrote {OUTPUT_CSV} with {len(rows)} files")
 

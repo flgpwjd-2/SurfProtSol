@@ -294,7 +294,7 @@ def run_training(config_path: str | Path) -> Path:
             weight_decay=float(training.get("weight_decay", 0.01)),
             epochs=int(training.get("epochs", 30)),
             patience=int(training.get("patience", 5)),
-            monitor=str(training.get("cross_monitor", "accuracy")),
+            monitor=str(training.get("cross_monitor", "auroc")),
         )
     )
 

@@ -2,14 +2,21 @@
   "all_release_actions": [
     "include"
   ],
-  "bytes": 3318644,
+  "bytes": 3320843,
   "excluded_directories": [
     ".git",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
     "__pycache__",
+    "build",
     "checkpoints",
     "data",
+    "dist",
     "outputs",
-    "vendor"
+    "vendor",
+    "venv"
   ],
-  "files": 77
+  "files": 78
 }

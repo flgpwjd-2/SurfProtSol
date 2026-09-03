@@ -30,7 +30,7 @@ training:
   concat_learning_rate: 0.0005
   cross_learning_rate: 0.0002
   concat_monitor: mcc
-  cross_monitor: accuracy
+  cross_monitor: auroc
 
 selection:
   temperature_min: 0.05

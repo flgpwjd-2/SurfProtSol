@@ -10,7 +10,7 @@ Use `scripts/join_labels.py` for individual files or
 latter recomputes final SurfProtSol predictions and the four released surface
 controls and compares them with `validation/reported_metrics.csv`.
 
-Large artifacts are archived separately on Zenodo under the reserved DOI
+Large artifacts are archived separately at the Zenodo DOI
 https://doi.org/10.5281/zenodo.21583106. The archive contains:
 
 - 64-dimensional `surface_z` tables;
