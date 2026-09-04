@@ -2,7 +2,7 @@
   "all_release_actions": [
     "include"
   ],
-  "bytes": 3320843,
+  "bytes": 3320936,
   "excluded_directories": [
     ".git",
     ".mypy_cache",
