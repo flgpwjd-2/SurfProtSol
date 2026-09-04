@@ -76,7 +76,11 @@ def release_metadata(relative: Path) -> tuple[str, str, str]:
 
 def main() -> None:
     rows = []
-    for path in sorted(ROOT.rglob("*")):
+    paths = sorted(
+        ROOT.rglob("*"),
+        key=lambda path: path.relative_to(ROOT).as_posix(),
+    )
+    for path in paths:
         if not path.is_file():
             continue
         relative = path.relative_to(ROOT)
